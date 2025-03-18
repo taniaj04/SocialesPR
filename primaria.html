@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuentra las parejas</title>
+    <h1>¡Empecemos el juego!</h1>
+    <link rel="stylesheet" href="primaria.css">
+</head>
+<body>
+    <h2>Relaciona los nombres de los países con sus banderas correspondientes</h2>
+    <div class="game-container">
+        <div id="info">Movimientos: <span id="moves">0</span></div>
+        <div class="game-board" id="gameBoard"></div>
+        <div class="buttons">
+            <button onclick="startGame()">Reiniciar Juego</button>
+            <button onclick="exitGame()">Salir</button>
+        </div>
+    </div>
+
+    <audio id="buttonSound" src="sonido.mp3" preload="auto"></audio>
+
+    <script src="primaria.js"></script>
+    <script>
+        const exitSound = new Audio('sonido.mp3');
+        const startGameSound = new Audio('reiniciar.mp3');
+        const seleccionSound = new Audio('seleccion.mp3')
+
+        function playSound() {
+            buttonSound.currentTime = 0; 
+            buttonSound.play();
+        }
+
+        function startGame() {
+            startGameSound.play();
+        }
+
+        function exitGame() {
+            playSound();
+            if (confirm("¿Seguro que quieres salir del juego?")) {
+                window.location.href = "index.html";  
+            }
+        }
+    </script>
+</body>
+</html>
